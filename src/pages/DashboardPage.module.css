@@ -1,0 +1,290 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 760px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* ── Alert ──────────────────────────────────────────────────────────────── */
+.alert {
+  display: flex;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--color-warning-light);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-lg);
+}
+
+.alertIcon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+.alert strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c5500;
+  margin-bottom: 4px;
+}
+
+.alert p {
+  font-size: 13px;
+  color: #7c5500;
+  line-height: 1.5;
+}
+
+.alertCode {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-top: 6px;
+  opacity: 0.75;
+  color: #7c5500;
+}
+
+/* ── Grid ───────────────────────────────────────────────────────────────── */
+/* Single stacked column of sections (matches the Settings layout) */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .grid { gap: 16px; }
+}
+
+/* ── Section card ───────────────────────────────────────────────────────── */
+.sectionCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.sectionHeader {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid var(--color-border-muted);
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.2px;
+}
+
+.sectionSubtitle {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.sectionBody {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Status row ─────────────────────────────────────────────────────────── */
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.statusText {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  flex: 1;
+}
+
+/* ── Dots ───────────────────────────────────────────────────────────────── */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotGreen { background: var(--color-success); }
+.dotYellow { background: var(--color-warning); }
+.dotRed { background: var(--color-danger); }
+.dot-idle { background: var(--color-border); }
+.dot-loading { background: var(--color-warning); animation: pulse 1.2s infinite; }
+.dot-ready { background: var(--color-success); }
+.dot-generating { background: var(--color-accent); animation: pulse 1s infinite; }
+.dot-error { background: var(--color-danger); }
+.dot-unloading { background: var(--color-text-subtle); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── Info list ──────────────────────────────────────────────────────────── */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infoRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.infoLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.infoLabel {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.infoDesc {
+  font-size: 11px;
+  color: var(--color-text-subtle);
+  line-height: 1.4;
+}
+
+.infoValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55%;
+}
+
+.none { color: var(--color-text-subtle); font-style: italic; }
+
+/* ── Progress ───────────────────────────────────────────────────────────── */
+.progressBox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progressText {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Card actions ───────────────────────────────────────────────────────── */
+.cardActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+/* ── Hint ───────────────────────────────────────────────────────────────── */
+.hint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  padding: 10px 12px;
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-md);
+}
+
+/* ── Loading row ────────────────────────────────────────────────────────── */
+.loadingRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ── Notes list ─────────────────────────────────────────────────────────── */
+.notesList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notesList li {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  padding-left: 18px;
+  position: relative;
+}
+
+.notesList li::before {
+  content: '·';
+  position: absolute;
+  left: 5px;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+/* ── Size guide ─────────────────────────────────────────────────────────── */
+.sizeGuide {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sizeRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.sizeLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.sizeNote {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.sizeMeta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}

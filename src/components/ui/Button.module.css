@@ -1,0 +1,90 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition), opacity var(--transition);
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.sm { font-size: 12px; padding: 5px 10px; border-radius: var(--radius-sm); }
+.md { font-size: 13px; padding: 7px 14px; }
+.lg { font-size: 14px; padding: 10px 20px; }
+
+/* Variants */
+.primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-xs);
+}
+.primary:not(:disabled):hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-xs);
+}
+.secondary:not(:disabled):hover {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: transparent;
+}
+.ghost:not(:disabled):hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+.danger {
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+  border-color: transparent;
+}
+.danger:not(:disabled):hover {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.success {
+  background: var(--color-success-light);
+  color: var(--color-success);
+  border-color: transparent;
+}
+.success:not(:disabled):hover {
+  background: var(--color-success);
+  color: #fff;
+}
+
+.fullWidth { width: 100%; }
+
+.icon, .iconRight {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}

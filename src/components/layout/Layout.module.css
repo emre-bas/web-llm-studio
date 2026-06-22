@@ -1,0 +1,112 @@
+.shell {
+  display: flex;
+  min-height: 100dvh;
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ── Mobile off-canvas drawer backdrop ───────────────────────────────────────*/
+.backdrop {
+  display: none;
+}
+
+/* ── Mobile top bar (non-chat pages) ─────────────────────────────────────────*/
+.mobileBar {
+  display: none;
+}
+
+.hamburger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-text);
+  border-radius: var(--radius-full);
+}
+
+.hamburger:hover {
+  background: var(--color-surface-raised);
+}
+
+.mobileBrand {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.3px;
+}
+
+/* Non-chat pages have a padded, horizontally-centered content wrapper */
+.content {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 32px 36px;
+}
+
+/* Chat page goes full-bleed — no wrapper padding */
+.mainChat {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────────────────*/
+@media (max-width: 767px) {
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 250;
+    background: rgb(0 0 0 / 0.45);
+    animation: fade 160ms ease forwards;
+  }
+
+  .mobileBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 10px;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-shrink: 0;
+  }
+
+  .content {
+    padding: 18px 16px;
+  }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Tablet ──────────────────────────────────────────────────────────────────*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .content {
+    padding: 28px 28px;
+  }
+}

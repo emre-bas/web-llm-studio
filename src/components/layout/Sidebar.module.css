@@ -1,0 +1,248 @@
+.sidebar {
+  width: var(--sidebar-width);
+  min-height: 100dvh;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* On mobile the sidebar becomes an off-canvas drawer, opened via the top-bar
+   hamburger. Same content as desktop — no separate bottom nav. */
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    z-index: 300;
+    transform: translateX(-100%);
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--shadow-lg);
+    width: 264px;
+    max-width: 82vw;
+  }
+  .sidebar.drawerOpen {
+    transform: translateX(0);
+  }
+}
+
+.brand {
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--color-border-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Close (X) for the mobile drawer — hidden on desktop where the sidebar is static. */
+.drawerClose {
+  display: none;
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.drawerClose:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+@media (max-width: 767px) {
+  .drawerClose { display: flex; }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo:hover { text-decoration: none; }
+
+.logoMark {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoMark img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.logoName {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.logoSub {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-subtle);
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 8px;
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: background var(--transition), color var(--transition);
+  text-decoration: none;
+  min-height: 38px;
+}
+
+.navItem:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.navItem.active {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.navIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Nav item label + optional sub-line (loaded model under "Models") */
+.navBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.navLabel {
+  line-height: 1.3;
+}
+
+.navModelRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.navModelName {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keep the model sub-line subtle even when the Models item is active */
+.navItem.active .navModelName {
+  color: var(--color-accent);
+  opacity: 0.85;
+}
+
+.footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-border-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.footer:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.footer.footerActive {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.footerLabel {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* GPU/CPU capability indicator, pushed to the trailing edge of the footer. */
+.gpuPill {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--color-border-muted);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background var(--transition-slow);
+}
+
+.idle { background: var(--color-border); }
+.loading { background: var(--color-warning); animation: pulse 1.2s ease-in-out infinite; }
+.ready { background: var(--color-success); }
+.generating { background: var(--color-accent); animation: pulse 1s ease-in-out infinite; }
+.error { background: var(--color-danger); }
+.unloading { background: var(--color-text-subtle); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
